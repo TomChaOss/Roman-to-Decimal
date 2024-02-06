@@ -1,0 +1,14 @@
+def roman_to_decimal(roman_number_string):
+    letter_to_num = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M': 1000}
+    final_num = 0
+    prev_num = 0
+    for symbol in roman_number_string[::-1]:
+        s = symbol.upper()
+        num = letter_to_num[s]
+        if num < prev_num:
+            final_num -= num
+        else:
+            final_num += num
+        prev_num = num
+    return final_num
+print(roman_to_decimal('IXcv'))
